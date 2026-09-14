@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://zenkaku-hankaku.pages.dev/sitemap.xml

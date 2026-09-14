@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>全角半角変換｜英数字・カタカナ・記号をまとめて相互変換する無料ツール</title>
+<meta name="description" content="全角と半角を相互変換できる無料ツール。英数字・記号・スペース・カタカナを、まとめて全角→半角 / 半角→全角に変換。変換対象は項目ごとに選べます。ブラウザ内で完結し、テキストは外部に送信しません。">
+<meta name="keywords" content="全角 半角 変換,全角半角変換,半角 全角,全角 半角,半角カタカナ 変換,英数字 半角,文字 変換,無料ツール">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#0E8A6E">
+<link rel="canonical" href="https://zenkaku-hankaku.pages.dev/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="全角半角変換">
+<meta property="og:title" content="全角半角変換｜英数字・カタカナ・記号をまとめて相互変換する無料ツール">
+<meta property="og:description" content="全角⇄半角を相互変換。英数字・記号・スペース・カタカナに対応し、変換対象も選べます。無料・ブラウザ内で完結。">
+<meta property="og:url" content="https://zenkaku-hankaku.pages.dev/">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="全角半角変換｜全角⇄半角 相互変換ツール">
+<meta name="twitter:description" content="英数字・カタカナ・記号の全角⇄半角をまとめて変換。無料・ブラウザ内で完結。">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "全角半角変換",
+      "url": "https://zenkaku-hankaku.pages.dev/",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Web",
+      "description": "英数字・記号・スペース・カタカナの全角⇄半角を相互変換する無料ツール。",
+      "inLanguage": "ja",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "無料で使えますか？", "acceptedAnswer": { "@type": "Answer", "text": "はい、完全無料で使えます。会員登録も不要で、回数制限もありません。" } },
+        { "@type": "Question", "name": "入力したテキストは外部に送信されますか？", "acceptedAnswer": { "@type": "Answer", "text": "いいえ。すべての処理はあなたのブラウザ内（端末内）で完結し、入力したテキストがサーバーに送信されることはありません。" } },
+        { "@type": "Question", "name": "半角カタカナも変換できますか？", "acceptedAnswer": { "@type": "Answer", "text": "はい。「カタカナ」をオンにすると、半角カナ⇄全角カナを変換します。濁点・半濁点（ｶﾞ→ガ など）もまとめて処理します。" } },
+        { "@type": "Question", "name": "英数字だけ半角にできますか？", "acceptedAnswer": { "@type": "Answer", "text": "はい。変換したい対象（英数字・記号・スペース・カタカナ）を項目ごとにオン/オフできます。英数字だけをオンにすれば、記号などはそのまま残せます。" } }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+  :root{
+    --bg:#EAEEF2;--surface:#FFFFFF;--surface-2:#F3F6F8;--ink:#1B2733;--ink-soft:#566575;--ink-faint:#8695A4;
+    --line:#D7DEE5;--line-strong:#C2CCD5;--accent:#0E8A6E;--accent-ink:#0A6B56;--accent-soft:#DBEFE8;
+    --danger:#BD4630;--danger-soft:#F6E2DC;--shadow:0 1px 2px rgba(27,39,51,.05),0 8px 24px rgba(27,39,51,.06);--radius:14px;
+    --font-display:"Zen Kaku Gothic New","Noto Sans JP",system-ui,sans-serif;--font-body:"Noto Sans JP",system-ui,sans-serif;--font-mono:"JetBrains Mono",ui-monospace,monospace;
+  }
+  :root:not([data-theme="light"]){@media (prefers-color-scheme:dark){
+    --bg:#0F141A;--surface:#171F28;--surface-2:#1D2731;--ink:#E8EDF2;--ink-soft:#98A7B6;--ink-faint:#6C7B8A;
+    --line:#293641;--line-strong:#37454F;--accent:#34C9A5;--accent-ink:#54D9B8;--accent-soft:#123A31;
+    --danger:#E67A60;--danger-soft:#3A201A;--shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.35);
+  }}
+  :root[data-theme="dark"]{
+    --bg:#0F141A;--surface:#171F28;--surface-2:#1D2731;--ink:#E8EDF2;--ink-soft:#98A7B6;--ink-faint:#6C7B8A;
+    --line:#293641;--line-strong:#37454F;--accent:#34C9A5;--accent-ink:#54D9B8;--accent-soft:#123A31;
+    --danger:#E67A60;--danger-soft:#3A201A;--shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.35);
+  }
+  *{box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);font-family:var(--font-body);line-height:1.7;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1120px;margin:0 auto;padding:28px 20px 56px}
+  header{margin-bottom:22px}
+  .eyebrow{font-family:var(--font-mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-ink);font-weight:700;display:flex;align-items:center;gap:8px;margin-bottom:10px}
+  .eyebrow::before{content:"";width:22px;height:2px;background:var(--accent);border-radius:2px}
+  h1{font-family:var(--font-display);font-weight:900;font-size:clamp(28px,5vw,40px);line-height:1.15;margin:0 0 8px;letter-spacing:-.01em;text-wrap:balance}
+  .tagline{color:var(--ink-soft);font-size:15px;max-width:60ch;margin:0}
+  .tagline b{color:var(--ink);font-weight:700}
+  .toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:22px 0 16px}
+  .seg{display:inline-flex;background:var(--surface-2);border:1px solid var(--line);padding:3px;border-radius:999px;gap:2px}
+  .seg button{padding:7px 16px;border:0;background:transparent;border-radius:999px;cursor:pointer;font-family:var(--font-body);font-weight:700;font-size:13px;color:var(--ink-soft);transition:.15s}
+  .seg button[aria-pressed="true"]{background:var(--accent);color:#fff}
+  .seg button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .chip{display:inline-flex;align-items:center;gap:8px;padding:8px 13px;border-radius:999px;cursor:pointer;user-select:none;background:var(--surface);border:1px solid var(--line);font-size:13px;font-weight:500;color:var(--ink-soft);transition:.15s}
+  .chip:hover{border-color:var(--line-strong)}
+  .chip input{position:absolute;opacity:0;width:0;height:0}
+  .chip .box{width:16px;height:16px;border-radius:5px;border:1.5px solid var(--line-strong);display:grid;place-items:center;flex:none;transition:.15s}
+  .chip .box svg{width:11px;height:11px;stroke:#fff;stroke-width:3;fill:none;opacity:0;transition:.12s}
+  .chip:has(input:checked){background:var(--accent-soft);border-color:var(--accent);color:var(--accent-ink);font-weight:700}
+  .chip:has(input:checked) .box{background:var(--accent);border-color:var(--accent)}
+  .chip:has(input:checked) .box svg{opacity:1}
+  .chip:has(input:focus-visible){outline:2px solid var(--accent);outline-offset:2px}
+  .spacer{flex:1 1 auto}
+  .btn{display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:999px;cursor:pointer;font-family:var(--font-body);font-size:13px;font-weight:700;border:1px solid var(--line);background:var(--surface);color:var(--ink-soft);transition:.15s}
+  .btn:hover{border-color:var(--line-strong);color:var(--ink)}
+  .btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);display:flex;flex-direction:column;overflow:hidden;min-height:320px}
+  .panel-head{display:flex;align-items:center;justify-content:space-between;padding:13px 16px;border-bottom:1px solid var(--line);gap:10px}
+  .panel-title{display:flex;align-items:center;gap:9px;font-weight:700;font-size:14px}
+  .panel-title .dot{width:8px;height:8px;border-radius:50%;flex:none}
+  .dot.in{background:var(--ink-faint)}.dot.out{background:var(--accent)}
+  .panel-title small{color:var(--ink-faint);font-weight:500;font-size:12px}
+  .count{font-family:var(--font-mono);font-size:12px;color:var(--ink-faint);font-weight:500}
+  textarea{flex:1;width:100%;border:0;resize:none;padding:16px;font-family:var(--font-body);font-size:15px;line-height:1.9;color:var(--ink);background:transparent;outline:none;min-height:240px}
+  textarea::placeholder{color:var(--ink-faint)}
+  .out-body{flex:1;overflow:auto;padding:16px;font-size:15px;line-height:1.9;white-space:pre-wrap;word-break:break-word}
+  .copy-wrap{padding:12px 16px;border-top:1px solid var(--line);display:flex;justify-content:flex-end}
+  .copy{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;border:0;cursor:pointer;padding:9px 18px;border-radius:999px;font-family:var(--font-body);font-weight:700;font-size:13.5px;transition:transform .1s,filter .15s}
+  .copy:hover{filter:brightness(1.06)}.copy:active{transform:translateY(1px)}
+  .copy:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .copy.done{background:var(--accent-ink)}
+  footer{margin-top:24px;color:var(--ink-faint);font-size:12.5px;line-height:1.7}
+  footer code{font-family:var(--font-mono);background:var(--surface-2);padding:1px 6px;border-radius:5px;font-size:11.5px}
+  @media (max-width:760px){.grid{grid-template-columns:1fr}.panel{min-height:auto}textarea{min-height:180px}}
+  .doc{max-width:66ch;margin:52px auto 0;display:flex;flex-direction:column;gap:38px}
+  .doc h2{font-family:var(--font-display);font-weight:700;font-size:21px;line-height:1.3;margin:0 0 14px;border-left:3px solid var(--accent);padding-left:13px;color:var(--ink);text-wrap:balance}
+  .doc p{margin:0 0 12px;color:var(--ink-soft);font-size:15px;line-height:1.95}
+  .doc p:last-child{margin-bottom:0}
+  .doc b{color:var(--ink);font-weight:700}
+  .doc a{color:var(--accent-ink);font-weight:700;text-underline-offset:3px}
+  .doc ul,.doc ol{margin:0;padding-left:1.35em;color:var(--ink-soft);display:flex;flex-direction:column;gap:8px;font-size:15px}
+  .doc li{line-height:1.85}.doc li::marker{color:var(--accent)}
+  .doc dl{margin:0;display:flex;flex-direction:column;gap:18px}
+  .doc dt{font-weight:700;color:var(--ink);font-size:15.5px;margin-bottom:5px;display:flex;gap:8px}
+  .doc dt::before{content:"Q.";color:var(--accent-ink);font-family:var(--font-mono);font-weight:700;flex:none}
+  .doc dd{margin:0;color:var(--ink-soft);font-size:15px;line-height:1.9;padding-left:1.7em}
+  .steps{list-style:none;padding:0;counter-reset:step;gap:12px}
+  .steps li{position:relative;padding-left:42px;line-height:1.8;color:var(--ink-soft)}
+  .steps li::before{counter-increment:step;content:counter(step);position:absolute;left:0;top:0;width:28px;height:28px;border-radius:50%;background:var(--accent-soft);color:var(--accent-ink);display:grid;place-items:center;font-family:var(--font-mono);font-weight:700;font-size:13px}
+  @media (max-width:760px){.doc{margin-top:40px}}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">全角半角 · Zenkaku Hankaku</div>
+    <h1>全角半角変換</h1>
+    <p class="tagline">英数字・記号・スペース・カタカナの<b>全角⇄半角をまとめて相互変換</b>。変換したい対象は項目ごとに選べます。ブラウザ内で完結し、テキストはどこにも送信しません。</p>
+  </header>
+
+  <div class="toolbar">
+    <div class="seg" role="group" aria-label="変換方向">
+      <button id="dir-half" type="button" aria-pressed="true">全角 → 半角</button>
+      <button id="dir-full" type="button" aria-pressed="false">半角 → 全角</button>
+    </div>
+    <label class="chip"><input type="checkbox" id="opt-eisu" checked><span class="box"><svg viewBox="0 0 12 12"><path d="M2 6.5 5 9.5 10 3"/></svg></span>英数字</label>
+    <label class="chip"><input type="checkbox" id="opt-kigou" checked><span class="box"><svg viewBox="0 0 12 12"><path d="M2 6.5 5 9.5 10 3"/></svg></span>記号</label>
+    <label class="chip"><input type="checkbox" id="opt-space" checked><span class="box"><svg viewBox="0 0 12 12"><path d="M2 6.5 5 9.5 10 3"/></svg></span>スペース</label>
+    <label class="chip"><input type="checkbox" id="opt-kana" checked><span class="box"><svg viewBox="0 0 12 12"><path d="M2 6.5 5 9.5 10 3"/></svg></span>カタカナ</label>
+    <span class="spacer"></span>
+    <button class="btn" id="btn-sample" type="button">サンプル読込</button>
+    <button class="btn" id="btn-clear" type="button">クリア</button>
+  </div>
+
+  <div class="grid">
+    <section class="panel">
+      <div class="panel-head">
+        <div class="panel-title"><span class="dot in"></span>入力</div>
+        <span class="count" id="count-in">0 字</span>
+      </div>
+      <textarea id="src" spellcheck="false" placeholder="ここに文章を貼り付け／入力すると、選んだ方向にリアルタイム変換します…"></textarea>
+    </section>
+    <section class="panel">
+      <div class="panel-head">
+        <div class="panel-title"><span class="dot out"></span>出力 <small id="out-label">全角→半角</small></div>
+        <span class="count" id="count-out">0 字</span>
+      </div>
+      <div class="out-body"><span id="out"></span></div>
+      <div class="copy-wrap">
+        <button class="copy" id="btn-copy" type="button">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          <span id="copy-label">結果をコピー</span>
+        </button>
+      </div>
+    </section>
+  </div>
+
+  <article class="doc">
+    <section>
+      <h2>全角半角変換とは</h2>
+      <p>全角半角変換は、文章に混ざった<b>全角と半角を相互に変換する無料ツール</b>です。「Ａ１」→「A1」のような<b>英数字</b>、「（）！」などの<b>記号</b>、<b>スペース</b>、そして<b>半角カナ⇄全角カナ</b>（ｶﾞ→ガ など濁点も対応）を、まとめて変換できます。フォームの入力チェックやデータ整形、住所・氏名の表記ゆれ直しなどに便利です。</p>
+      <p>すべての処理はあなたのブラウザ内（端末内）で完結し、<b>入力したテキストがサーバーに送信されることはありません</b>。</p>
+    </section>
+    <section>
+      <h2>使い方</h2>
+      <ol class="steps">
+        <li>上で変換方向（<b>全角→半角</b> / <b>半角→全角</b>）を選びます。</li>
+        <li>変換したい対象（英数字・記号・スペース・カタカナ）をオン/オフします。</li>
+        <li>左に文章を貼り付けると、右に変換結果が<b>リアルタイム表示</b>されます。「結果をコピー」で取得。</li>
+      </ol>
+    </section>
+    <section>
+      <h2>変換できるもの</h2>
+      <ul>
+        <li><b>英数字</b>：Ａ-Ｚ / ａ-ｚ / ０-９ ⇄ A-Z / a-z / 0-9</li>
+        <li><b>記号</b>：（）！？「」＠＃ などの全角記号 ⇄ 半角記号</li>
+        <li><b>スペース</b>：全角スペース（　）⇄ 半角スペース</li>
+        <li><b>カタカナ</b>：半角カナ ⇄ 全角カナ（濁点・半濁点をまとめて処理）</li>
+      </ul>
+    </section>
+    <section>
+      <h2>関連ツール</h2>
+      <p>ほかにも、話し言葉の整文は<a href="https://seibun-cleaner.pages.dev/">整文クリーナー</a>、コピペ改行の整形は<a href="https://kaigyo-cleaner.pages.dev/">改行クリーナー</a>、文字数チェックは<a href="https://moji-counter-jp.pages.dev/">文字数カウンター</a>もどうぞ。いずれも無料・ブラウザ内で完結します。</p>
+    </section>
+    <section>
+      <h2>よくある質問</h2>
+      <dl>
+        <dt>無料で使えますか？</dt><dd>はい、完全無料で使えます。会員登録も不要で、回数制限もありません。</dd>
+        <dt>入力したテキストは外部に送信されますか？</dt><dd>いいえ。すべての処理はブラウザ内で完結し、入力したテキストがサーバーに送信されることはありません。</dd>
+        <dt>半角カタカナも変換できますか？</dt><dd>はい。「カタカナ」をオンにすると半角カナ⇄全角カナを変換します。濁点・半濁点（ｶﾞ→ガ など）もまとめて処理します。</dd>
+        <dt>英数字だけ半角にできますか？</dt><dd>はい。変換対象を項目ごとに選べるので、英数字だけをオンにすれば記号などはそのまま残せます。</dd>
+      </dl>
+    </section>
+  </article>
+
+  <footer>
+    ※ 変換は一般的な対応表に基づく自動処理です。特殊な記号や環境依存文字は変換されない場合があります。<br>
+    処理はすべて端末内（<code>JavaScript</code>）で完結し、入力テキストはサーバーに送信されません。
+  </footer>
+</div>
+
+<script>
+(function(){
+  const $ = id => document.getElementById(id);
+  const src=$('src'), out=$('out');
+  const opt={eisu:$('opt-eisu'),kigou:$('opt-kigou'),space:$('opt-space'),kana:$('opt-kana')};
+  let dir='half'; // 'half' = 全角→半角, 'full' = 半角→全角
+
+  const SAMPLE = "全角の「Ａ１２３」や記号（！？）、　全角スペース、半角カナ ｱｲｳ ｶﾞｷﾞ ﾊﾟ をまとめて変換できます。";
+
+  // 半角カナ → 全角カナ 用の対応表
+  const KANA_MAP={'ｱ':'ア','ｲ':'イ','ｳ':'ウ','ｴ':'エ','ｵ':'オ','ｶ':'カ','ｷ':'キ','ｸ':'ク','ｹ':'ケ','ｺ':'コ','ｻ':'サ','ｼ':'シ','ｽ':'ス','ｾ':'セ','ｿ':'ソ','ﾀ':'タ','ﾁ':'チ','ﾂ':'ツ','ﾃ':'テ','ﾄ':'ト','ﾅ':'ナ','ﾆ':'ニ','ﾇ':'ヌ','ﾈ':'ネ','ﾉ':'ノ','ﾊ':'ハ','ﾋ':'ヒ','ﾌ':'フ','ﾍ':'ヘ','ﾎ':'ホ','ﾏ':'マ','ﾐ':'ミ','ﾑ':'ム','ﾒ':'メ','ﾓ':'モ','ﾔ':'ヤ','ﾕ':'ユ','ﾖ':'ヨ','ﾗ':'ラ','ﾘ':'リ','ﾙ':'ル','ﾚ':'レ','ﾛ':'ロ','ﾜ':'ワ','ｦ':'ヲ','ﾝ':'ン','ｧ':'ァ','ｨ':'ィ','ｩ':'ゥ','ｪ':'ェ','ｫ':'ォ','ｬ':'ャ','ｭ':'ュ','ｮ':'ョ','ｯ':'ッ','ｰ':'ー','｡':'。','｢':'「','｣':'」','､':'、','･':'・'};
+  const DAKU={'ｶ':'ガ','ｷ':'ギ','ｸ':'グ','ｹ':'ゲ','ｺ':'ゴ','ｻ':'ザ','ｼ':'ジ','ｽ':'ズ','ｾ':'ゼ','ｿ':'ゾ','ﾀ':'ダ','ﾁ':'ヂ','ﾂ':'ヅ','ﾃ':'デ','ﾄ':'ド','ﾊ':'バ','ﾋ':'ビ','ﾌ':'ブ','ﾍ':'ベ','ﾎ':'ボ','ｳ':'ヴ'};
+  const HANDAKU={'ﾊ':'パ','ﾋ':'ピ','ﾌ':'プ','ﾍ':'ペ','ﾎ':'ポ'};
+  const Z2H={};
+  Object.keys(KANA_MAP).forEach(h=>Z2H[KANA_MAP[h]]=h);
+  Object.keys(DAKU).forEach(h=>Z2H[DAKU[h]]=h+'ﾞ');
+  Object.keys(HANDAKU).forEach(h=>Z2H[HANDAKU[h]]=h+'ﾟ');
+
+  function toHalf(t){
+    if(opt.eisu.checked||opt.kigou.checked){
+      t=t.replace(/[！-～]/g,ch=>{
+        const c=ch.charCodeAt(0);
+        const alnum=(c>=0xFF10&&c<=0xFF19)||(c>=0xFF21&&c<=0xFF3A)||(c>=0xFF41&&c<=0xFF5A);
+        if(alnum&&!opt.eisu.checked)return ch;
+        if(!alnum&&!opt.kigou.checked)return ch;
+        return String.fromCharCode(c-0xFEE0);
+      });
+    }
+    if(opt.space.checked)t=t.replace(/　/g,' ');
+    if(opt.kana.checked){let o='';for(const ch of t)o+=(Z2H[ch]||ch);t=o;}
+    return t;
+  }
+  function toFull(t){
+    if(opt.eisu.checked||opt.kigou.checked){
+      t=t.replace(/[!-~]/g,ch=>{
+        const c=ch.charCodeAt(0);
+        const alnum=(c>=0x30&&c<=0x39)||(c>=0x41&&c<=0x5A)||(c>=0x61&&c<=0x7A);
+        if(alnum&&!opt.eisu.checked)return ch;
+        if(!alnum&&!opt.kigou.checked)return ch;
+        return String.fromCharCode(c+0xFEE0);
+      });
+    }
+    if(opt.space.checked)t=t.replace(/ /g,'　');
+    if(opt.kana.checked){
+      let o='';
+      for(let i=0;i<t.length;i++){
+        const c=t[i],n=t[i+1];
+        if(n==='ﾞ'&&DAKU[c]){o+=DAKU[c];i++;continue;}
+        if(n==='ﾟ'&&HANDAKU[c]){o+=HANDAKU[c];i++;continue;}
+        o+=(KANA_MAP[c]||c);
+      }
+      t=o;
+    }
+    return t;
+  }
+
+  let last='';
+  function render(){
+    const raw=src.value;
+    const res=(dir==='half')?toHalf(raw):toFull(raw);
+    last=res; out.textContent=res;
+    $('count-in').textContent=Array.from(raw).length.toLocaleString()+' 字';
+    $('count-out').textContent=Array.from(res).length.toLocaleString()+' 字';
+    $('out-label').textContent=(dir==='half')?'全角→半角':'半角→全角';
+  }
+
+  $('dir-half').onclick=()=>{dir='half';$('dir-half').setAttribute('aria-pressed','true');$('dir-full').setAttribute('aria-pressed','false');render();};
+  $('dir-full').onclick=()=>{dir='full';$('dir-full').setAttribute('aria-pressed','true');$('dir-half').setAttribute('aria-pressed','false');render();};
+
+  const btnCopy=$('btn-copy'),copyLabel=$('copy-label');
+  btnCopy.onclick=async()=>{
+    try{await navigator.clipboard.writeText(last);btnCopy.classList.add('done');copyLabel.textContent='コピーしました';setTimeout(()=>{btnCopy.classList.remove('done');copyLabel.textContent='結果をコピー';},1500);}
+    catch(e){copyLabel.textContent='コピー失敗';setTimeout(()=>copyLabel.textContent='結果をコピー',1500);}
+  };
+  $('btn-sample').onclick=()=>{src.value=SAMPLE;render();src.focus();};
+  $('btn-clear').onclick=()=>{src.value='';render();src.focus();};
+  src.addEventListener('input',render);
+  Object.values(opt).forEach(o=>o.addEventListener('change',render));
+
+  src.value=SAMPLE; render();
+})();
+</script>
+</body>
+</html>
