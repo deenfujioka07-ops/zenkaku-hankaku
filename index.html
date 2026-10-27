@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>全角半角変換｜英数字・カタカナ・記号をまとめて相互変換する無料ツール</title>
-<meta name="description" content="全角と半角を相互変換できる無料ツール。英数字・記号・スペース・カタカナを、まとめて全角→半角 / 半角→全角に変換。変換対象は項目ごとに選べます。ブラウザ内で完結し、テキストは外部に送信しません。">
-<meta name="keywords" content="全角 半角 変換,全角半角変換,半角 全角,全角 半角,半角カタカナ 変換,英数字 半角,文字 変換,無料ツール">
+<meta name="description" content="全角と半角を相互変換できる無料ツール。英数字（アルファベット）・記号・スペース・カタカナを、まとめて全角→半角 / 半角→全角に変換。半角記号の一覧も掲載。変換対象は項目ごとに選べます。ブラウザ内で完結し、テキストは外部に送信しません。">
+<meta name="keywords" content="全角 半角 変換,全角半角変換,半角 全角,全角 半角,半角カタカナ 変換,半角カナ 全角カナ 変換,英数字 半角,全角 アルファベット 変換,英語 全角 変換,半角記号 一覧,全角 チェック,文字 変換,無料ツール">
 <meta name="robots" content="index,follow">
 <meta name="theme-color" content="#0E8A6E">
 <link rel="canonical" href="https://zenkaku.moji-tools.com/">
@@ -38,7 +38,10 @@
         { "@type": "Question", "name": "無料で使えますか？", "acceptedAnswer": { "@type": "Answer", "text": "はい、完全無料で使えます。会員登録も不要で、回数制限もありません。" } },
         { "@type": "Question", "name": "入力したテキストは外部に送信されますか？", "acceptedAnswer": { "@type": "Answer", "text": "いいえ。すべての処理はあなたのブラウザ内（端末内）で完結し、入力したテキストがサーバーに送信されることはありません。" } },
         { "@type": "Question", "name": "半角カタカナも変換できますか？", "acceptedAnswer": { "@type": "Answer", "text": "はい。「カタカナ」をオンにすると、半角カナ⇄全角カナを変換します。濁点・半濁点（ｶﾞ→ガ など）もまとめて処理します。" } },
-        { "@type": "Question", "name": "英数字だけ半角にできますか？", "acceptedAnswer": { "@type": "Answer", "text": "はい。変換したい対象（英数字・記号・スペース・カタカナ）を項目ごとにオン/オフできます。英数字だけをオンにすれば、記号などはそのまま残せます。" } }
+        { "@type": "Question", "name": "英数字だけ半角にできますか？", "acceptedAnswer": { "@type": "Answer", "text": "はい。変換したい対象（英数字・記号・スペース・カタカナ）を項目ごとにオン/オフできます。英数字だけをオンにすれば、記号などはそのまま残せます。" } },
+        { "@type": "Question", "name": "英語のアルファベットを全角に変換できますか？", "acceptedAnswer": { "@type": "Answer", "text": "はい。変換方向を「半角→全角」にして「英数字」をオンにすると、A-Z・a-z・0-9 が Ａ-Ｚ・ａ-ｚ・０-９ に変わります。逆に「全角→半角」で全角アルファベットを半角にもできます。" } },
+        { "@type": "Question", "name": "漢字を半角に変換できますか？", "acceptedAnswer": { "@type": "Answer", "text": "いいえ。漢字やひらがなには半角の文字がないため、変換の対象外でそのまま残ります。変換できるのは英数字・記号・スペース・カタカナです。" } },
+        { "@type": "Question", "name": "文章に全角が混ざっているか確認できますか？", "acceptedAnswer": { "@type": "Answer", "text": "「全角→半角」に変換すると、全角の英数字・記号・スペース・カタカナが半角になります。変換前後を見比べることで、全角が混ざっていた箇所を確認できます。" } }
       ]
     }
   ]
@@ -118,6 +121,7 @@
   .doc a{color:var(--accent-ink);font-weight:700;text-underline-offset:3px}
   .doc ul,.doc ol{margin:0;padding-left:1.35em;color:var(--ink-soft);display:flex;flex-direction:column;gap:8px;font-size:15px}
   .doc li{line-height:1.85}.doc li::marker{color:var(--accent)}
+  .doc .sym{font-family:var(--font-mono);font-size:14px;line-height:2.1;word-break:break-all}
   .doc .tool-links{list-style:none;padding:0;margin:12px 0 0;flex-direction:row;flex-wrap:wrap;gap:10px}
   .tool-link{
     display:inline-flex;align-items:center;gap:6px;
@@ -214,6 +218,16 @@
         <li><b>スペース</b>：全角スペース（　）⇄ 半角スペース</li>
         <li><b>カタカナ</b>：半角カナ ⇄ 全角カナ（濁点・半濁点をまとめて処理）</li>
       </ul>
+      <p>漢字・ひらがなには半角の文字がないため、変換せずそのまま残ります。</p>
+    </section>
+    <section>
+      <h2>半角記号の一覧</h2>
+      <p>「記号」をオンにすると、次の半角記号と全角記号が相互に変換されます（左が半角、右が全角）。</p>
+      <p class="sym">! ⇄ ！　" ⇄ ＂　# ⇄ ＃　$ ⇄ ＄　% ⇄ ％　&amp; ⇄ ＆　' ⇄ ＇　( ⇄ （　) ⇄ ）　* ⇄ ＊　+ ⇄ ＋　, ⇄ ，　- ⇄ －　. ⇄ ．　/ ⇄ ／　: ⇄ ：　; ⇄ ；　&lt; ⇄ ＜　= ⇄ ＝　&gt; ⇄ ＞　? ⇄ ？　@ ⇄ ＠　[ ⇄ ［　\ ⇄ ＼　] ⇄ ］　^ ⇄ ＾　_ ⇄ ＿　` ⇄ ｀　{ ⇄ ｛　| ⇄ ｜　} ⇄ ｝　~ ⇄ ～</p>
+    </section>
+    <section>
+      <h2>英語（アルファベット）の全角・半角変換</h2>
+      <p>半角の英語を全角にしたいときは変換方向を「半角→全角」に、全角の英字を半角にしたいときは「全角→半角」にして、<b>「英数字」</b>をオンにします。例：「Ａｐｐｌｅ １２３」→「Apple 123」。</p>
     </section>
     <section>
       <h2>関連ツール</h2>
@@ -241,6 +255,18 @@
       <details>
         <summary>英数字だけ半角にできますか？<span class="chev">⌄</span></summary>
         <p>はい。変換対象を項目ごとに選べるので、英数字だけをオンにすれば記号などはそのまま残せます。</p>
+      </details>
+      <details>
+        <summary>英語のアルファベットを全角に変換できますか？<span class="chev">⌄</span></summary>
+        <p>はい。変換方向を「半角→全角」にして「英数字」をオンにすると、A-Z・a-z・0-9 が Ａ-Ｚ・ａ-ｚ・０-９ に変わります。逆に「全角→半角」で全角アルファベットを半角にもできます。</p>
+      </details>
+      <details>
+        <summary>漢字を半角に変換できますか？<span class="chev">⌄</span></summary>
+        <p>いいえ。漢字やひらがなには半角の文字がないため、変換の対象外でそのまま残ります。変換できるのは英数字・記号・スペース・カタカナです。</p>
+      </details>
+      <details>
+        <summary>文章に全角が混ざっているか確認できますか？<span class="chev">⌄</span></summary>
+        <p>「全角→半角」に変換すると、全角の英数字・記号・スペース・カタカナが半角になります。変換前後を見比べることで、全角が混ざっていた箇所を確認できます。</p>
       </details>
     </section>
   </article>
